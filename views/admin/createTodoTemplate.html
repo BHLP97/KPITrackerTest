@@ -128,13 +128,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./listTodos.html" class="nav-link active">
+                <a href="./listTodos.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List of Todos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./listTodoTemplates.html" class="nav-link">
+                <a href="./listTodoTemplates.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List of Todo templates</p>
                 </a>
@@ -204,9 +204,47 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="col-6">
-                  <select name="todoTemplates" id="todoTemplate"></select>
-                </div>
+                <form action="createTodoTemplate.html" method="post" id="newTodoTemplate">
+                  <div class="">
+                      <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="text" class="form-control" id="name" placeholder="Title of the Todo">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                          </div>
+                        </div>
+                        <!-- <small></small> -->
+                      </div>
+                      
+                    </div>
+                    <div>
+                      <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="email" class="form-control" id="TodoTemplate" placeholder="Description of the Todo">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                          </div>
+                        </div>
+                        <!-- <small></small> -->
+                      </div>
+                      
+                    </div>
+                    <div>
+                      <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="text" class="form-control" id="kpiIds" placeholder="KPIs linked to the Todo">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-eye"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <small></small> -->
+                    </div>
+                  <button class="btn btn-block btn-primary mt-4" type="submit">Add the Template to the Database</button>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
@@ -263,22 +301,7 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
-<script>
-  $(function () {
-    /* $('#userTable').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    }); */
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
-</script>
+<script src="../../js/common.js"></script>
+<script src="../../js/createTodoTemplate.js"></script>
 </body>
 </html>

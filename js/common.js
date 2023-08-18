@@ -19,9 +19,9 @@ const findMaxID = arr =>{
 
 const showMessage = (input, message, type) => {
 	console.log(input.parentNode)
-  const msg = input.parentNode.querySelector('small')
+  const msg = input.parentNode.parentNode.querySelector('small')
   msg.innerHTML = message
-  input.className = type ? 'success' : 'error'
+  input.className += type ? ' success' : ' error'
   return type
 }
 
@@ -61,21 +61,3 @@ const validateEmail = (input, requiredMsg, invalidMsg) => {
 
   return true
 }
-
-const form = document.querySelector('#newUser')
-
-const NAME_REQUIRED = 'Please enter a name'
-const EMAIL_REQUIRED = 'Please enter an email'
-const EMAIL_INVALID = 'Please enter a correct email address format'
-const PASSWORD_REQUIRED = 'Please enter a password'
-
-form.addEventListener('submit', event => {
-  event.preventDefault()
-
-  let nameValid = hasValue(form.elements['name'], NAME_REQUIRED)
-  let emailValid = validateEmail(form.elements['email'], EMAIL_REQUIRED, EMAIL_INVALID)
-
-  if (nameValid && emailValid) {
-    alert('Demo only. No user was posted.')
-  }
-})

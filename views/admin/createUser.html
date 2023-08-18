@@ -205,36 +205,45 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <form action="createUser.html" method="post" id="newUser">
-                  <div class="col-6">
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" id="name" placeholder="Full name">
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <span class="fas fa-user"></span>
-                        </div>
-                      </div>
+                  <div class="">
                       <small></small>
-                    </div>
-                    <div class="input-group mb-3">
-                      <input type="email" class="form-control" id="email" placeholder="Email">
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <span class="fas fa-envelope"></span>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="text" class="form-control" id="name" placeholder="Full name">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                          </div>
                         </div>
+                        <!-- <small></small> -->
                       </div>
+                      
+                    </div>
+                    <div>
                       <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                          </div>
+                        </div>
+                        <!-- <small></small> -->
+                      </div>
+                      
                     </div>
-                    <div class="input-group mb-3">
-                      <input type="password" class="form-control" id="password" placeholder="Password">
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <span class="fas fa-lock"></span>
+                    <div>
+                      <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                          </div>
                         </div>
                       </div>
+                      <!-- <small></small> -->
                     </div>
-                    <small></small>
-                  </div>
-                  <button type="submit">Add the User to the Database</button>
+                  <button class="btn btn-block btn-primary mt-4" type="submit">Add the User to the Database</button>
                 </form>
               </div>
               <!-- /.card-body -->
@@ -301,6 +310,6 @@
   });
 </script>
 <script src="../../js/common.js"></script>
-<script src="../../js/create.js"></script>
+<script src="../../js/createUser.js"></script>
 </body>
 </html>

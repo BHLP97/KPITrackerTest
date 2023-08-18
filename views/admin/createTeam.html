@@ -204,9 +204,26 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="col-12">
-                  <input type="text" name="" id="nameTeam">
-                </div>
+                <form action="createTeam.html" method="post" id="newTeam">
+                  <div class="">
+                      <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        <input type="text" class="form-control" id="name" placeholder="Team name">
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                          </div>
+                        </div>
+                        <!-- <small></small> -->
+                      </div>
+                      <small></small>
+                      <div class="input-group mb-3 gap-3">
+                        
+                      </div>
+                      <!-- <small></small> -->
+                    </div>
+                  <button class="btn btn-block btn-primary mt-4" type="submit">Add the Team to the Database</button>
+                </form>
               </div>
               <!-- /.card-body -->
             </div>
@@ -263,22 +280,7 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
-<script>
-  $(function () {
-    /* $('#userTable').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    }); */
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
-</script>
+<script src="../../js/common.js"></script>
+<script src="../../js/createTodoTemplate.js"></script>
 </body>
 </html>
