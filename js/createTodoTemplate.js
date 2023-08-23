@@ -5,16 +5,15 @@ const TITLE_REQUIRED = 'Please enter a title'
 form.addEventListener('submit', event => {
   event.preventDefault()
 
-  let titleValid = hasValue(form.elements.title, NAME_REQUIRED)
+  let titleValid = hasValue(form.elements.title, TITLE_REQUIRED)
 
-  if (nameValid) {
+  if (titleValid) {
     let TodoTemplateDB = getData('TodoTemplates')
     let newTodoTemplate = {
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value
+      title: form.elements.title.value
     }
     TodoTemplateDB.push(newTodoTemplate)
     saveData('TodoTemplates', TodoTemplateDB)
+    swal("Good job!", "The template was successfully created!", "success");
   }
 })

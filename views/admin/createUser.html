@@ -207,7 +207,7 @@
                 <form action="createUser.html" method="post" id="newUser">
                   <div class="">
                       <small></small>
-                      <div class="input-group mb-3 gap-3">
+                      <div class="input-group mb-3 gap-3 col-6">
                         <input type="text" class="form-control" id="name" placeholder="Full name">
                         <div class="input-group-append">
                           <div class="input-group-text">
@@ -220,7 +220,7 @@
                     </div>
                     <div>
                       <small></small>
-                      <div class="input-group mb-3 gap-3">
+                      <div class="input-group mb-3 gap-3 col-6">
                         <input type="email" class="form-control" id="email" placeholder="Email">
                         <div class="input-group-append">
                           <div class="input-group-text">
@@ -233,7 +233,7 @@
                     </div>
                     <div>
                       <small></small>
-                      <div class="input-group mb-3 gap-3">
+                      <div class="input-group mb-3 gap-3 col-6">
                         <input type="password" class="form-control" id="password" placeholder="Password">
                         <div class="input-group-append">
                           <div class="input-group-text">
@@ -243,15 +243,28 @@
                       </div>
                       <!-- <small></small> -->
                     </div>
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                       <input type="checkbox" class="form-check-input" id="isPM">
                       <label class="form-check-label" for="">Give Project Manager Role</label>
                     </div>
                     <div class="form-check">
                       <input type="checkbox" class="form-check-input" id="isAdmin">
                       <label class="form-check-label" for="">Give Admin Role</label>
+                    </div> -->
+                    <div class="form-group col-6">
+                      <label>Select the role of the user</label>
+                      <select class="form-control" id="role">
+                        <option value="Team Member">Team Member</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Admin">Admin</option>
+                      </select>
                     </div>
-                  <button class="btn btn-block btn-primary mt-4" type="submit">Add the User to the Database</button>
+                    <div class="row">
+                      <div class="col"></div>
+                      <button class="btn btn-block btn-primary col-4 mt-4" type="submit">Add the User to the Database</button>
+                      <div class="col"></div>
+                    </div>
+                  
                 </form>
               </div>
               <!-- /.card-body -->
@@ -293,6 +306,8 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -309,14 +324,6 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
-</script>
 <script src="../../js/common.js"></script>
 <script src="../../js/createUser.js"></script>
 </body>

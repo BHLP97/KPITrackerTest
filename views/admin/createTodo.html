@@ -205,19 +205,23 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <form action="createTodo.html" method="post" id="newTodo">
-                  <div class="">
-                      <small></small>
-                      <div class="input-group mb-3 gap-3">
-                        <input type="text" class="form-control" id="name" placeholder="Select a Todo from the Templates available">
-                        <div class="input-group-append">
-                          <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                          </div>
+                  <div class="col-6">
+                    <small></small>
+                    <div class="input-group mb-3 gap-3">
+                      <input type="text" class="form-control" id="name" placeholder="Select a Todo from the Templates available">
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <span class="fas fa-user"></span>
                         </div>
-                        <!-- <small></small> -->
                       </div>
+                      <!-- <small></small> -->
                     </div>
-                  <button class="btn btn-block btn-primary mt-4" type="submit">Add the Todo to the Database</button>
+                  </div>
+                  <div class="row">
+                    <div class="col"></div>
+                    <button class="btn btn-block btn-primary col-4 mt-4" type="submit">Add the Todo to the Database</button>
+                    <div class="col"></div>
+                  </div>
                 </form>
               </div>
               <!-- /.card-body -->
@@ -259,6 +263,8 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

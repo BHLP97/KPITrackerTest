@@ -17,9 +17,15 @@ form.addEventListener('submit', event => {
     let newUser = {
       name: form.elements.name.value,
       email: form.elements.email.value,
-      password: form.elements.password.value
+      password: form.elements.password.value,
+      role: form.elements.role.value,
+      grade: "NA"
+    }
+    if (form.elements.role.value === 'teamRole') {
+      newUser.grade = "O"
     }
     userDB.push(newUser)
     saveData('Users', userDB)
+    swal("Good job!", "The user was successfully created!", "success");
   }
 })

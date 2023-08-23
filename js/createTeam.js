@@ -1,6 +1,6 @@
 const form = document.querySelector('#newTeam')
 
-const NAME_REQUIRED = 'Please enter a name'
+const NAME_REQUIRED = 'Please enter the name of the team'
 const PM_REQUIRED = 'Please designate a project manager for the team'
 
 form.addEventListener('submit', event => {
@@ -17,5 +17,6 @@ form.addEventListener('submit', event => {
     }
     teamDB.push(newTeam)
     saveData('Teams', teamDB)
+    swal("Good job!", "The team was successfully created!", "success");
   }
 })
