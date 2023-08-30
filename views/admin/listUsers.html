@@ -214,23 +214,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th>A</th>
-                      <th>1</th>
-                      <th>1</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
+
                   </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Mail</th>
-                      <th>Team</th>
-                      <th>Role</th>
-                      <th>Grade</th>
-                    </tr>
-                  </tfoot>
                 </table>
               </div>
               <div class="row mb-4">
@@ -309,7 +294,7 @@
           <tr>
             <th>${el.name}</th>
             <th>${el.email}</th>
-            <th></th>
+            <th>${(el.team != 0) ? el.team : "No Team"}</th>
             <th>${el.role}</th>
             <th>${el.grade}</th>
           </tr>

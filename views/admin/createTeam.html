@@ -205,19 +205,27 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <form action="createTeam.html" method="post" id="newTeam">
-                  <div class="col-6">
-                    <small></small>
-                    <div class="input-group mb-3 gap-3">
-                      <input type="text" class="form-control" id="name" placeholder="Team name">
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <span class="fas fa-user"></span>
-                        </div>
+                  <small></small>
+                  <div class="input-group mb-3 gap-3 col-sm-6 col-12">
+                    <input type="text" class="form-control" id="name" placeholder="Team name">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-users"></span>
                       </div>
-                      <!-- <small></small> -->
                     </div>
-                    <small></small>
                     <!-- <small></small> -->
+                  </div>
+                  <small></small>
+                  <div class="form-group col-sm-6 col-12">
+                    <label>Select the Team's Lead</label>
+                    <select class="form-control" id="leadSelect">
+                      
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-6 col-12">
+                    <label>Select Multiple</label>
+                    <select multiple class="form-control" id="membersSelect">
+                    </select>
                   </div>
                   <div class="row">
                     <div class="col"></div>
@@ -284,6 +292,44 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
 <script src="../../js/common.js"></script>
-<script src="../../js/createTodoTemplate.js"></script>
+<script src="../../js/createTeam.js"></script>
+<script>
+  $(document).ready(function(){
+    const renderUI = () =>{
+      let users = getData('Users');
+      let leadOptions;
+      let memberOptions
+      users.forEach(el => {
+        if(el.team == '0'){
+           if(el.role == "Lead"){
+            leadOptions += `
+              <option value="${el.id}">${el.name}</option>
+            `
+          } else if(el.role == "Employee"){
+            memberOptions += `
+              <option value="${el.id}">${el.name}</option>
+            `
+          }
+        }
+      });
+      if($("#leadSelect")[0].options.length == 0) {
+        leadOptions += `
+              <option value="">No leads are free at the moment</option>
+            `
+      };
+      if($("#membersSelect")[0].options.length == 0) {
+        memberOptions += `
+              <option value="">No employees are free at the moment</option>
+            `
+      };
+      $("#leadSelect").html(leadOptions)
+      $("#membersSelect").html(memberOptions)
+      
+      
+      
+    }
+    renderUI();
+  })
+</script>
 </body>
 </html>

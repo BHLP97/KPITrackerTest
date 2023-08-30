@@ -207,33 +207,14 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Date started</th>
-                    <th>Date ended</th>
-                    <th>Status</th>
+                    <th>Team name</th>
+                    <th>Lead</th>
+                    <th>Members</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Date started</th>
-                    <th>Date ended</th>
-                    <th>Status</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <div class="row mb-4">
@@ -295,22 +276,44 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
+<script src="../../js/common.js"></script>
 <script>
-  $(function () {
-    /* $('#userTable').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    }); */
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
+  $(document).ready(function(){
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+    const renderUI = () =>{
+      let users = getData('Users');
+      let teams = getData('Teams');
+      let members = '';
+      let html = '';
+      teams.forEach(el => {
+        let lead = users.find((item) => {
+          if(item.id == parseInt(el.lead)) return item
+        });
+        (el.members).forEach((member) => {
+           users.find((item) => {
+            if(item.id == parseInt(member)) members += item.name + ', '
+          })
+        });
+        members = members.substring(0, members.length-2);
+        html += `
+          <tr>
+            <th>${el.id}</th>
+            <th>${el.name}</th>
+            <th>${lead.name}</th>
+            <th>${members}</th>
+          </tr>
+        `
+        members = ''
+      });
+      $("tbody").html(html);
+    }
+    renderUI();
+  })
 </script>
 </body>
 </html>

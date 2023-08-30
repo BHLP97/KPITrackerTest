@@ -15,17 +15,22 @@ form.addEventListener('submit', event => {
   if (nameValid && emailValid && passwordValid) {
     let userDB = getData('Users')
     let newUser = {
+      id: findMaxID(userDB) + 1,
       name: form.elements.name.value,
       email: form.elements.email.value,
       password: form.elements.password.value,
       role: form.elements.role.value,
-      grade: "NA"
+      team: 0,
+      grade: 'NA'
     }
-    if (form.elements.role.value === 'teamRole') {
-      newUser.grade = "O"
+    if (form.elements.role.value === 'Employee') {
+      newUser.grade = 'O'
+      newUser.kpis = ''
+      newUser.todos = ''
     }
     userDB.push(newUser)
     saveData('Users', userDB)
     swal("Good job!", "The user was successfully created!", "success");
+    $("#newUser")[0].reset()
   }
 })

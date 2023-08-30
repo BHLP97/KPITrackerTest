@@ -1,22 +1,34 @@
 const form = document.querySelector('#newTeam')
 
 const NAME_REQUIRED = 'Please enter the name of the team'
-const PM_REQUIRED = 'Please designate a project manager for the team'
+const LEAD_REQUIRED = 'Please designate a lead for the team'
 
 form.addEventListener('submit', event => {
   event.preventDefault()
 
   let nameValid = hasValue(form.elements.name, NAME_REQUIRED)
-  let pmValid = hasValue(form.elements.pm, PM_REQUIRED)
+  let leadValid = hasValue(form.elements.leadSelect, LEAD_REQUIRED)
 
-  if (nameValid && pmValid) {
+  if (nameValid && leadValid) {
     let teamDB = getData('Teams')
     let newTeam = {
+      id: findMaxID(teamDB) + 1,
       name: form.elements.name.value,
-      pm: form.elements.pm.value
+      lead: form.elements.leadSelect.value,
+      members: $('#membersSelect').val(),
+      kpis: ''
     }
+    users = getData('Users');
+    (newTeam.members).forEach(element => {
+      member = users.find(item => item.id == parseInt(element))
+      member.team = newTeam.id;
+      users[member.id] = member;
+      console.log(users);
+    });
     teamDB.push(newTeam)
     saveData('Teams', teamDB)
-    swal("Good job!", "The team was successfully created!", "success");
+    saveData('Users', users)
+    swal("Good job!", "The team was successfully created!", "success")
+    $("#newTeam")[0].reset()
   }
 })
