@@ -18,7 +18,6 @@ const findMaxID = arr =>{
 }
 
 const showMessage = (input, message, type) => {
-	console.log(input.parentNode)
   const msg = input.parentNode.parentNode.querySelector('small')
   msg.innerHTML = message
   input.className += type ? ' success' : ' error'
@@ -26,17 +25,14 @@ const showMessage = (input, message, type) => {
 }
 
 function showError(input, message) {
-	console.log('showError')
   return showMessage(input, message, false)
 }
 
 function showSuccess(input) {
-	console.log('showSuccess')
   return showMessage(input, '', true)
 }
 
 function hasValue(input, message) {
-  console.log('checkingValue')
   if (input.value.trim() === '') {
     return showError(input, message)
   }

@@ -9,10 +9,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+ <!-- Tempusdominus Bootstrap 4 -->
+ <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
@@ -205,21 +203,52 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <form action="createTodo.html" method="post" id="newTodo">
-                  <div class="col-6">
+                  <div>
+                    <div class="form-group col-sm-6 col-12">
+                      <label>Select the employee to assign this Todo to</label>
+                      <small></small>
+                      <select class="form-control" id="employeeSelect">
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-6 col-12">
+                    <label>Select an existing template if you wish to</label>
+                    <select class="form-control" id="templateSelect" onchange="applyTemplate()">
+                    </select>
+                  </div>
+                  <div>
                     <small></small>
                     <div class="input-group mb-3 gap-3 col-sm-6 col-12">
-                      <input type="text" class="form-control" id="name" placeholder="Select a Todo from the Templates available">
+                      <input type="text" class="form-control" id="description" placeholder="Description">
                       <div class="input-group-append">
-                        <div class="input-group-text">
-                          <span class="fas fa-user"></span>
-                        </div>
                       </div>
                       <!-- <small></small> -->
                     </div>
                   </div>
+                  <div>
+                    <small></small>
+                    <div class="form-group col-sm-6 col-12">
+                      <div class="input-group date" id="deadline" data-target-input="nearest">
+                          <input type="text" class="form-control datetimepicker-input" data-target="#deadline"/>
+                          <div class="input-group-append" data-target="#deadline" data-toggle="datetimepicker">
+                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <small></small>
+                    <div class="input-group mb-3 gap-3 col-sm-6 col-12">
+                      <input type="number" class="form-control" id="value" placeholder="Value">
+                      <div class="input-group-append">
+                      </div>
+                      <!-- <small></small> -->
+                    </div>
+                  </div>          
+                            
                   <div class="row">
                     <div class="col"></div>
-                    <button class="btn btn-block btn-primary col-4 mt-4" type="submit">Add the Todo to the Database</button>
+                    <button class="btn btn-block btn-primary col-4 mt-4" type="submit">Add the ToDo to the Database</button>
                     <div class="col"></div>
                   </div>
                 </form>
@@ -265,23 +294,52 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- SweetAlert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- InputMask -->
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
 <script src="../../js/common.js"></script>
-<script src="../../js/createTodoTemplate.js"></script>
+<script src="../../js/createTodo.js"></script>
+<script>
+  $(document).ready(function(){
+    const renderUI = () => {
+      let users = getData('Users');
+      let templates = getData('ToDosTemplates');
+      let employeeOptions;
+      let templateOptions;
+      users.forEach(el => {
+        if(el.role == "Employee"){
+          employeeOptions += `
+            <option value="${el.id}">${el.name}</option>
+          `
+        }
+      })
+      templates.forEach(template => {
+        templateOptions += `
+          <option value="${template.id}">${template.description}</option>
+        `
+      })
+      $("#employeeSelect").html(employeeOptions)
+      $("#templateSelect").html(templateOptions)
+    }
+    renderUI();
+
+    /* function applyTemplate = () => {
+      console.log($("#employeeSelect").html())
+    } */
+
+    //Date picker
+    $('#deadline').datetimepicker({
+      format: 'DD/MM/YYYY',
+      minDate: Date.now(),
+      daysOfWeekDisabled: [0, 6]
+    });
+
+  })
+</script>
 </body>
 </html>

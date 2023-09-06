@@ -207,26 +207,17 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
                     <th>Description</th>
+                    <th>Employee</th>
                     <th>Date started</th>
                     <th>Date ended</th>
+                    <th>Deadline</th>
                     <th>Status</th>
                   </tr>
                   </thead>
                   <tbody>
 
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Date started</th>
-                    <th>Date ended</th>
-                    <th>Status</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <div class="row mb-4">
@@ -289,22 +280,38 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
+<script src="../../js/common.js"></script>
 <script>
-  $(function () {
-    /* $('#userTable').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    }); */
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
+  $(document).ready(function(){
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+    const renderUI = () => {
+      let users = getData('Users');
+      let todos = getData('Todos');
+      let html = '';
+      todos.forEach(el => {
+        let employee = users.find(item => item.id == parseInt(el.employee))
+        html += `
+          <tr>
+            <th>${el.id}</th>
+            <th>${el.description}</th>
+            <th>${employee.name}</th>
+            <th>${el.startdate}</th>
+            <th>${el.enddate}</th>
+            <th>${el.deadline}</th>
+            <th>${el.status}</th>
+          </tr>
+        `
+      });
+      $("tbody").html(html);
+    }
+    renderUI();
+  })
+  
 </script>
 </body>
 </html>
