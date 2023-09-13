@@ -28,17 +28,13 @@ form.addEventListener('submit', event => {
     let newTodoTemplate = {
       id: findMaxID(toDosDB) + 1,
       description: form.elements.description.value,
-      daysRequired: momentDeadline.diff(moment(), 'days'),
-      value: ''
+      daysRequired: momentDeadline.diff(moment(), 'days') + 1,
+      value: form.elements.value.value
     }
 
-    users = getData('Users');
-    employee = users.find(item => item.id == newTodo.employee)
-    employee.toDos += newTodo.id
-    saveData('Users', users);
     toDosDB.push(newTodo)
     saveData('ToDos', toDosDB);
-    if (toDosTemplatesDB.find(el => el.desc == form.elements.description.value)) {
+    if (toDosTemplatesDB.find(el => el.description == form.elements.description.value)) {
 
     } else {
       toDosTemplatesDB.push(newTodoTemplate)

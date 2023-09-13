@@ -21,12 +21,7 @@ form.addEventListener('submit', event => {
       password: form.elements.password.value,
       role: form.elements.role.value,
       team: 0,
-      grade: 'NA'
-    }
-    if (form.elements.role.value === 'Employee') {
-      newUser.grade = 'O'
-      newUser.kpis = ''
-      newUser.todos = ''
+      employed_at: moment().format('DD/MM/YYYY')
     }
     userDB.push(newUser)
     saveData('Users', userDB)

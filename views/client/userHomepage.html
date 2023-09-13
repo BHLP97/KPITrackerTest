@@ -60,11 +60,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -202,122 +197,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="ion ion-clipboard mr-1"></i>
                   My ToDo List
                 </h3>
-                <div class="card-tools">
-                  <a href="#">
-                    See more
-                  </a>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <ul class="todo-list" data-widget="todo-list">
-                  <li>
-                    <!-- drag handle -->
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <!-- checkbox -->
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                      <label for="todoCheck1"></label>
-                    </div>
-                    <!-- todo text -->
-                    <span class="text">Todo 1</span>
-                    <!-- Emphasis label -->
-                    <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                    <!-- General tools such as edit or delete-->
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
-                      <label for="todoCheck2"></label>
-                    </div>
-                    <span class="text">Todo 2</span>
-                    <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                      <label for="todoCheck3"></label>
-                    </div>
-                    <span class="text">Todo 3</span>
-                    <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo4" id="todoCheck4"  checked>
-                      <label for="todoCheck4"></label>
-                    </div>
-                    <span class="text">Todo 4</span>
-                    <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                      <label for="todoCheck5"></label>
-                    </div>
-                    <span class="text">Todo 5</span>
-                    <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo6" id="todoCheck6" checked>
-                      <label for="todoCheck6"></label>
-                    </div>
-                    <span class="text">Todo 6</span>
-                    <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
+      
                 </ul>
               </div>
               <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
-              </div>
             </div>
             <!-- /.card -->
           </div>
@@ -327,16 +214,76 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="row">
               <div class="col-lg-6 col-6">
                 <!-- small box -->
+                <div class="small-box bg-green">
+                  <div class="inner">
+                    <h3 id="kpiTotalTodosDone"></h3>
+                    <p>Total ToDos done</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                  <div class="inner">
+                    <h3 id="kpiTodosNotDone"></h3>
+                    <p>ToDos left before deadline</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                  <div class="inner">
+                    <h3 id="kpiDeadlineTodosDone"></h3>
+                    <p>ToDos done after deadline</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                  <div class="inner">
+                    <h3 id="kpiDeadlineTodosNotDone"></h3>
+                    <p>ToDos left after deadline</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-6">
+                <!-- small box -->
                 <div class="small-box bg-info">
                   <div class="inner">
-                    <h3>5</h3>
-    
+                    <h3 id="kpiWeeklyTodos"></h3>
                     <p>Average ToDos per Week</p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-bag"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-6 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3  id="kpiAverageTodoTime"></h3>
+    
+                    <p>Average ToDo Time in Days</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
                 </div>
               </div>
               <!-- ./col -->
@@ -344,44 +291,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- small box -->
                 <div class="small-box bg-success">
                   <div class="inner">
-                    <h3>75<sup style="font-size: 20px">%</sup></h3>
+                    <h3 id="kpiWeeklyValue"></h3>
     
-                    <p>Success Rate</p>
+                    <p>Average Value added per Week</p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
               <!-- ./col -->
               <div class="col-lg-6 col-6">
                 <!-- small box -->
-                <div class="small-box bg-warning">
+                <div class="small-box bg-success">
                   <div class="inner">
-                    <h3>5.25 h</h3>
-    
-                    <p>Average Todo Time</p>
-                  </div>
-                  <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                  </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-              </div>
-              <!-- ./col -->
-              <div class="col-lg-6 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                  <div class="inner">
-                    <h3>42</h3>
+                    <h3 id="kpiValue"></h3>
     
                     <p>Value added</p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                   </div>
-                  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
               <!-- ./col -->
@@ -396,25 +326,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -424,7 +335,110 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- InputMask -->
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<!-- Page specific script -->
+<script src="../../js/common.js"></script>
+<script>
+  $(document).ready(function(){
+    let users = getData('Users');
+    let todos = getData('ToDos');
+    
+    let urlParams = new URLSearchParams(window.location.search)
+    let myParam = urlParams.get('id')
+    let employee = users.find(e => e.id == myParam)
+    let employeeTodos = todos.filter(e => e.employee == employee.id)
+    let employeeEmployedAt = moment(employee.employed_at, 'DD/MM/YYYY')
+    let today = moment().startOf('day');
+    let weeksEmployed = Math.round(moment.duration(today - employeeEmployedAt).asWeeks());
+
+    const updateKPIs = (id = 0) =>{
+      if(id != 0){
+        todo = todos.find(el => el.id == id.target.id)
+        todo.status = (id.target.checked) ? 1 : 0
+        if(id.target.checked) todo.enddate = moment().format('DD/MM/YYYY')
+        saveData('ToDos', todos);
+      }
+      let todosDone = employeeTodos.filter(todo => todo.status == 1)
+      let valueArray = todosDone.map(todo => todo.value)
+      let valueSum = valueArray.reduce((partialSum, a) => partialSum + parseInt(a), 0)
+      let timeTodoArray = todosDone.map(todo => {
+        momentStartDate = moment(todo.startdate, 'DD/MM/YYYY')
+        momentEndDate = moment(todo.enddate, 'DD/MM/YYYY')
+        return momentEndDate.diff(momentStartDate, 'days') + 1
+      })
+      let timeTodoSum = timeTodoArray.reduce((partialSum, a) => partialSum + parseInt(a), 0)
+
+      kpisIDs.forEach(kpiID => {
+        switch(kpiID) {
+          case 'kpiTotalTodosDone':
+            $(`#${kpiID}`).html(employeeTodos.filter(todo => todo.status == 1).length)
+            break;
+          case 'kpiTodosNotDone':
+            $(`#${kpiID}`).html(employeeTodos.filter(todo => todo.status == 0 && todo.enddate < todo.deadline).length)
+            break;
+          case 'kpiDeadlineTodosDone':
+            $(`#${kpiID}`).html(employeeTodos.filter(todo => todo.status == 1 && todo.enddate > todo.deadline).length)
+            break;
+          case 'kpiDeadlineTodosNotDone':
+            $(`#${kpiID}`).html(employeeTodos.filter(todo => todo.status == 0 && todo.enddate > todo.deadline).length)
+            break;
+          case 'kpiWeeklyTodos':
+            $(`#${kpiID}`).html(employeeTodos.filter(todo => todo.status == 1).length/weeksEmployed)
+            break;
+          case 'kpiAverageTodoTime':
+            $(`#${kpiID}`).html((employeeTodos.filter(todo => todo.status == 1).length) ? (timeTodoSum/employeeTodos.filter(todo => todo.status == 1).length) : 0)
+            break;
+          case 'kpiWeeklyValue':
+            $(`#${kpiID}`).html(valueSum/weeksEmployed)
+            break;
+          case 'kpiValue':
+            $(`#${kpiID}`).html(valueSum)
+            break;
+          default:
+            $(`#${kpiID}`).html('KPI Unknown')
+        }  
+      })
+    }
+    const renderUI = () => {
+      let html = ''
+      employeeTodos.forEach(el => {
+        let badgeClass = ''
+        let momentDeadline = moment(el.deadline, 'DD/MM/YYYY')
+        let momentStartDate = moment(el.startdate, 'DD/MM/YYYY')
+        let timeToDeadline = momentDeadline.diff(momentStartDate, 'days') + 1
+        console.log(moment() < momentDeadline)
+        if (moment() < momentDeadline){
+          console.log('warning')
+          badgeClass = 'badge-warning'
+          /* let timeToDeadline = timeToDeadline + 'days left' */
+        } else {
+          console.log('danger')
+          badgeClass = 'badge-danger'
+          /* let timeToDeadline = timeToDeadline + 'days late' */
+        }
+        console.log(badgeClass)
+        html += `
+          <li>
+            <div  class="icheck-primary d-inline ml-2">
+              <input type="checkbox" value="" class="todo" id="${el.id}" ${(el.status == 1) ? 'checked' : ''}>
+              <label for="todoCheck2"></label>
+            </div>
+            <span class="text">${el.description}</span>
+            <small class="badge ${badgeClass}"><i class="far fa-clock"></i>${timeToDeadline}</small>
+          </li>
+        `
+      });
+      $(".todo-list").html(html);
+      updateKPIs();
+    }
+
+    renderUI();
+    $('.todo').on('change', updateKPIs)
+  })
+</script>
 </body>
 </html>

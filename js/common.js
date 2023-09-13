@@ -1,3 +1,20 @@
+const isLogin = {
+  id: '',
+  name: '',
+  role: ''
+}
+
+const kpisIDs = [
+  'kpiTotalTodosDone',
+  'kpiDeadlineTodosDone',
+  'kpiTodosNotDone',
+  'kpiDeadlineTodosNotDone',
+  'kpiWeeklyTodos',
+  'kpiAverageTodoTime',
+  'kpiWeeklyValue',
+  'kpiValue'
+]
+
 const saveData = (objectName, object) => {
   localStorage.setItem(objectName, JSON.stringify(object))
 }

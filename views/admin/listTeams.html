@@ -60,11 +60,6 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -210,6 +205,7 @@
                     <th>Team name</th>
                     <th>Lead</th>
                     <th>Members</th>
+                    <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -232,25 +228,6 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -306,6 +283,10 @@
             <th>${el.name}</th>
             <th>${lead.name}</th>
             <th>${members}</th>
+            <th>
+              <i class="fas fa-edit"></i>
+              <i class="fa fa-trash"></i>
+            </th>
           </tr>
         `
         members = ''
